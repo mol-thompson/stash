@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      DJANGO_SETTINGS_MODULE: config.settings.testing
+      DATABASE_URL: postgres://stash:stash@localhost:5432/stash
+
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_DB: stash
+          POSTGRES_USER: stash
+          POSTGRES_PASSWORD: stash
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U stash -d stash"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Check linting
+        run: uv run ruff check .
+
+      - name: Check formatting
+        run: uv run ruff format --check .
+
+      - name: Check typing
+        run: uv run mypy .
+      
+      - name: Run migrations
+        run: uv run python manage.py migrate
+
+      - name: Collect static files
+        run: uv run python manage.py collectstatic --noinput
+
+      - name: Run tests
+        run: uv run pytest
