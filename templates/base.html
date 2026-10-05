@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en-gb">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <title>{% block title %}Stash{% endblock title %}</title>
+        {% include "shell/head.html" %}
+
+        {% block extra_head %}
+        {% endblock extra_head %}
+    </head>
+    <body class="d-flex flex-column min-vh-100">
+        {% include "shell/nav.html" %}
+        {% include "shell/messages.html" %}
+
+        <main class="flex-grow-1">
+            {% block body %}
+                {% block content %}
+                {% endblock content %}
+            {% endblock body %}
+        </main>
+        {% include "shell/footer.html" %}
+        {% include "shell/scripts.html" %}
+
+        {% block extra_body %}
+        {% endblock extra_body %}
+    </body>
+</html>

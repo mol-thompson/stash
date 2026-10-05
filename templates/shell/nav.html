@@ -1,0 +1,25 @@
+{% load static %}
+
+<nav
+    class="navbar bg-body navbar-expand-sm sticky-top border-bottom"
+    aria-label="Main navigation"
+>
+    <div class="container">
+        <a
+            class="navbar-brand d-inline-flex align-items-center gap-2"
+            href="{% url 'core:home' %}"
+        >
+            <svg aria-hidden="true" height="20" width="20">
+                <use href="{% static 'icons/sprites.svg' %}#icon-stash"></use>
+            </svg>
+            <span class="fw-semibold">Stash</span>
+        </a>
+        <div class="navbar-nav flex-row align-items-center gap-2 ms-auto">
+            <a
+                class="btn btn-outline-secondary btn-sm"
+                href="{% url 'account_login' %}"
+            >Log in</a>
+            <a class="btn btn-primary btn-sm" href="{% url 'account_signup' %}">Sign up</a>
+        </div>
+    </div>
+</nav>

@@ -2,6 +2,8 @@
 
 from pathlib import Path
 
+from django.contrib.messages import constants as messages
+
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
@@ -125,3 +127,10 @@ SESSION_COOKIE_SAMESITE = "Lax"
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_REFERRER_POLICY = "same-origin"
 X_FRAME_OPTIONS = "DENY"
+
+
+# Messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: "danger",
+}
