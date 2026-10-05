@@ -61,6 +61,13 @@ LOGIN_URL = "/auth/login/"
 LOGIN_REDIRECT_URL = "/account/"
 LOGOUT_REDIRECT_URL = "/"
 
+# Let Allauth and Django admin handle their own authentication,
+# rather than applying Chameleon's global login requirement.
+PUBLIC_PATHS = [
+    r"^/auth/.*",
+    r"^/site-admin/.*",
+]
+
 
 TEMPLATES = [
     {
