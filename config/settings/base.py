@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "django_htmx",
     # Local
+    "accounts.apps.AccountsConfig",
     "core.apps.CoreConfig",
 ]
 
@@ -35,6 +36,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
+    "global_login_required.GlobalLoginRequiredMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -43,10 +45,21 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 # Authentication
 
+AUTH_USER_MODEL = "accounts.User"
+ACCOUNT_USER_DISPLAY = "config.utils.get_user_display"
+
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
+
+ACCOUNT_LOGIN_METHODS = {"email"}
+ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_SIGNUP_FIELDS = ["email*", "password1*", "password2*"]
+LOGIN_URL = "/auth/login/"
+LOGIN_REDIRECT_URL = "/account/"
+LOGOUT_REDIRECT_URL = "/"
 
 
 TEMPLATES = [
