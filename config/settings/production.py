@@ -37,4 +37,4 @@ CSRF_COOKIE_SECURE = True
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
-MAILERS = {}
+MAILERS: dict[str, dict[str, str]] = {}
