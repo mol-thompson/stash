@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% comment %}
+  TEMPLATE: error.html
+  PURPOSE: Generic error template for HTTP status codes.
+
+  CONTEXT VARIABLES:
+    - status_code: HTTP status code
+
+    Optional:
+    - title: Error type title | Default: "Oops, something went wrong."
+    - message: Error message | Default: "An unexpected error occurred while processing your request."
+    - link_endpoint: URL endpoint for the link button | Default: "core:home".
+    - link_btn_text: Label for the link button | Default: "Back to homepage".
+{% endcomment %}
+
+{% block title %}Error {{ status_code }} | Stash{% endblock %}
+
+{% block content %}
+    {% firstof link_endpoint "core:home" as target_endpoint %}
+
+    <main
+        class="container min-vh-100 d-flex flex-column justify-center align-items-center py-5"
+    >
+        <div class="text-center max-w-lg px-3 error-code">
+            <!-- Large HTTP status code with high contrast -->
+            <h1 class="display-1 fw-bold text-primary mb-2 lh-1">{{ status_code }}</h1>
+
+            <!-- Error Title -->
+            <p class="fs-4 fw-semibold text-body mb-2">{{ title|default:"Oops, something went wrong." }}</p>
+
+            <!-- Error Message -->
+            <p
+                class="text-secondary mb-4"
+            >{{ message|default:"An unexpected error occurred while processing your request." }}</p>
+
+            <!-- Navigation Action -->
+            <div
+                class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-2"
+            >
+                <a
+                    class="btn btn-primary d-inline-flex align-items-center gap-2 px-4 py-2"
+                    href="{% url target_endpoint %}"
+                >
+                    <span class="icon-arrow-left" aria-hidden="true"></span>
+                    <span>{{ link_btn_text|default:"Back to homepage" }}</span>
+                </a>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
