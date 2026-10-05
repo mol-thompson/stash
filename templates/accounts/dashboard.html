@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Your stash | Stash{% endblock %}
+
+{% block content %}
+    <section
+        id="stash_area"
+        class="container py-5"
+        aria-labelledby="dashboard-title"
+    >
+        <div id="my_stash">
+            <header class="mb-4">
+                <p class="text-primary fw-semibold mb-2">YOUR WORKBENCH</p>
+                <h1 id="dashboard-title" class="h2 mb-2">Your stash</h1>
+                <p
+                    class="text-body-secondary mb-0"
+                >The commands, snippets and bits of know-how you want to find again.</p>
+            </header>
+            {% block stash_content %}
+                <div
+                    id="stash-items"
+                    class="border rounded-3 bg-body-secondary p-4 p-md-5 text-center"
+                >
+                    <h2 class="h4">Your stash is ready</h2>
+                    <p class="text-body-secondary mb-0">Your saved reference items will show up here.</p>
+                </div>
+            {% endblock stash_content %}
+        </div>
+    </section>
+{% endblock content %}

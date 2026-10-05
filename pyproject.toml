@@ -47,6 +47,7 @@ convention = "google"
 "**/tests/**/*.py" = ["S101"]                       # Allow use of assert for tests
 "**/tests/conftest.py" = ["S106"]                   # Allow test fixture for user model to contain hardcoded password
 "**/tests/test_accounts/test_models.py" = ["S106"]  # Allow tests for user model to contain hardcoded password
+"**/tests/test_accounts/test_views.py" = ["S106"]   # Allow auth tests to use known test passwords
 "**/**/models.py" = ["D106"]                        # Allow model Meta classes to not have docstring
 "**/**/forms.py" = ["D106"]                         # Allow form Meta classes to not have docstring
 "**/tests/factories.py" = ["D101", "D102", "D106"]  # Allow factory Meta classes and methods to not have docstring

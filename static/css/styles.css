@@ -29,7 +29,7 @@
   --bs-body-bg: #0d1117;
   --bs-body-bg-rgb: 13, 17, 23;
   --bs-body-color: #e6edf3;
-  --bs-secondary-color: rgba(230, 237, 243, 0.75);
+  --bs-secondary-color: rgba(245, 248, 250, 0.75);
   --bs-secondary-bg: #151b23;
   --bs-tertiary-bg: #1b222b;
   --bs-border-color: #2f3741;
@@ -91,6 +91,18 @@ body {
   --bs-btn-active-border-color: var(--primary-active);
   --bs-btn-active-color: var(--primary-content);
   --bs-btn-focus-shadow-rgb: var(--bs-primary-rgb);
+  font-weight: 600;
+}
+.btn-outline-secondary {
+  --bs-btn-border-color: var(--bs-body-color);
+  --bs-btn-color: var(--bs-body-color);
+  --bt-btn-bg: transparent;
+  --bs-btn-hover-bg: var(--bs-secondary-color);
+  --bs-btn-hover-color: var(--bs-secondary-bg);
+  --bs-btn-hover-border-color: var(--bs-secondary-color);
+  --bs-btn-active-bg: var(--bs-body-color);
+  --bs-btn-active-color: var(--bs-secondary-bg);
+  --bs-btn-active-border-color: var(--bs-secondary-bg);
   font-weight: 600;
 }
 
