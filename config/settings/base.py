@@ -37,6 +37,7 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
     "global_login_required.GlobalLoginRequiredMiddleware",
+    "core.middleware.HtmxMessageMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
