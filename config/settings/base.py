@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "django_htmx",
     # Local
+    "core.apps.CoreConfig",
 ]
 
 MIDDLEWARE = [
