@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Stash: Leave it here for future you.{% endblock %}
+
+{% block content %}
+    <main id="main">
+
+        <!-- 1. HERO: recognition -->
+        <section class="stash-hero py-5" aria-labelledby="hero-title">
+            <div class="container py-lg-4">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <p class="stash-eyebrow text-primary mb-3">
+                            <svg
+                                class="me-1 align-text-bottom"
+                                aria-hidden="true"
+                                height="16"
+                                width="16"
+                            >
+                                <use href="{% static 'icons/sprites.svg' %}#icon-stash"></use>
+                            </svg>
+                            git stash, but for everything else
+                        </p>
+                        <h1 id="hero-title" class="display-5 fw-bold mb-3">You know what you're looking for. <span>You just don't remember how to write it.</span></h1>
+                        <p class="lead text-body-secondary mb-2">
+                            Commands, snippets, queries, regex, config and little bits of knowledge you've already figured out once.
+                        </p>
+                        <p
+                            class="text-body-secondary mb-4"
+                        >You don't need to remember it. You just need to know where you left it.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a class="btn btn-primary btn-lg" href="{% url 'account_signup' %}">Start your stash</a>
+                            <a
+                                class="btn btn-outline-secondary btn-lg"
+                                href="{% url 'account_login' %}"
+                            >Log in</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <figure
+                            class="stash-panel p-3 p-md-4 mb-0"
+                            aria-label="Example: searching a stash for 'secret' finds a saved Django secret key command"
+                        >
+                            <div
+                                class="stash-search d-flex align-items-center gap-2 px-3 py-2 mb-3"
+                                aria-hidden="true"
+                            >
+                                <span class="text-body-secondary">/</span>
+                                <span>secret<span class="text-primary">▍</span></span>
+                                <span class="ms-auto small text-body-secondary">2 results</span>
+                            </div>
+                            <div class="stash-item p-3 mb-2">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span class="stash-kind">shell</span>
+                                    <span class="fw-semibold small">Generate a Django SECRET_KEY</span>
+                                    <span class="stash-copy ms-auto" aria-hidden="true">Copy</span>
+                                </div>
+                                <pre><code>python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"</code></pre>
+                                <div class="stash-meta mt-2">stashed by you · last March</div>
+                            </div>
+                            <div class="stash-item is-dim p-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="stash-kind">config</span>
+                                    <span class="small">Read SECRET_KEY from env, fail loudly if missing</span>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. FRUSTRATION + REFRAME: rediscovering vs retrieving -->
+        <section class="py-5 border-top" aria-labelledby="reframe-title">
+            <div class="container">
+                <h2 id="reframe-title" class="h3 mb-1">Wait. How did I do this again?</h2>
+                <p
+                    class="text-body-secondary mb-4"
+                >You've solved it before. The answer isn't hard to find. You're just doing the work twice.</p>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <h3 class="h6 text-body-secondary mb-3">Without a stash</h3>
+                        <ul class="stash-trail">
+                            <li>Django docs</li>
+                            <li>Stack Overflow, three answers deep</li>
+                            <li>that old project's settings.py</li>
+                            <li>a GitHub issue from 2021</li>
+                            <li>Oh god, I'm looking this up again.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="h6 mb-3 text-primary">With one</h3>
+                        <div class="stash-item p-3">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <span class="stash-kind">sql</span>
+                                <span class="fw-semibold small">Reset a Postgres sequence after import</span>
+                            </div>
+                            <pre><code>SELECT setval(pg_get_serial_sequence('app_item', 'id'),
+              (SELECT MAX(id) FROM app_item));</code></pre>
+                            <div class="stash-meta mt-2">Oh yes. I left this here for myself.</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-body-secondary mt-4 mb-0">It may take exactly as long either way. One feels like repeating yourself. The other feels like you were looking out for you.</p>
+            </div>
+        </section>
+
+        <!-- 3. BOOKMARK vs STASH -->
+        <section class="py-5 border-top" aria-labelledby="bookmark-title">
+            <div class="container">
+                <h2 id="bookmark-title h3 mb-1">Some things you bookmark. Some things you stash.</h2>
+                <p class="text-body-secondary mb-4">A bookmark says the page is useful. A stash item says you already found the useful thing and don't want to read the page again.</p>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <h3 class="h6 text-body-secondary mb-3">Bookmark</h3>
+                        <div class="stash-bookmark p-3">
+                            <div class="small fw-semibold">Customizing authentication in Django</div>
+                            <div class="stash-meta">docs.djangoproject.com/en/stable/topics/auth/customizing/</div>
+                            <div
+                                class="small text-body-secondary mt-2"
+                            >…and now you're scrolling to find the bit you needed.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="h6 mb-3 text-primary">Stash</h3>
+                        <div class="stash-item p-3">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <span class="stash-kind">shell</span>
+                                <span class="fw-semibold small">Create a superuser without prompts</span>
+                            </div>
+                            <pre><code>DJANGO_SUPERUSER_PASSWORD=changeme \
+python manage.py createsuperuser --noinput \
+  --username admin --email admin@example.com</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. RESOLUTION -->
+        <section class="py-5 border-top" aria-labelledby="cta-title">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-md-8">
+                        <blockquote class="stash-quote ps-3 mb-0">
+                            <h2
+                                id="cta-title"
+                                class="h4 mb-1"
+                            >You've looked it up before. You shouldn't have to look it up again.</h2>
+                            <p class="text-body-secondary mb-0">For future you.</p>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <a class="btn btn-stash btn-lg" href="{% url 'account_signup' %}">Start your stash</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+{% endblock content %}
