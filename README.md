@@ -115,7 +115,39 @@ For readability, the detailed quality assurance documentation is maintained in [
 
 ### Tech Stack
 
+| Technology | Purpose |
+| --- | --- |
+| [Python](https://www.python.org/) | Core programming language. |
+| [Django](https://www.djangoproject.com/) | Full-stack web framework. |
+| [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) | Page structure and semantic markup. |
+| [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) | Styling and layout. |
+| [Django Template Language](https://docs.djangoproject.com/en/6.1/ref/templates/language/) | Dynamic server-rendered HTML using Django templates. |
+| [Bootstrap](https://getbootstrap.com/) | Responsive UI styling and components. |
+| [HTMX](https://htmx.org/) | Dynamic page updates without a full JavaScript framework. |
+| [PostgreSQL](https://www.postgresql.org/) | Relational database. |
+
+| [django-allauth](https://docs.allauth.org/) | User authentication and account management. |
+| [WhiteNoise](https://whitenoise.readthedocs.io/) | Static file serving in production. |
+| [Neon](https://neon.com/) | Hosted PostgreSQL database. |
+| [Render](https://render.com/) | Application hosting and deployment. |
+
 ### Development Tooling
+
+| Tool | Purpose |
+| --- | --- |
+| [uv](https://docs.astral.sh/uv/) | Manage Python versions, virtual environments, and project dependencies. |
+| [Ruff](https://docs.astral.sh/ruff/) | Lint and format Python code. |
+| [mypy](https://mypy.readthedocs.io/en/stable/) and [Django stubs](https://github.com/typeddjango/django-stubs) | Provide static type checking and Django-specific type information. |
+| [djLint](https://www.djlint.com/) | Lint and format Django templates. |
+| [pre-commit](https://pre-commit.com/) | Run automated checks before commits. |
+| [pytest](https://docs.pytest.org/) | Run unit and integration tests. |
+| [Factory Boy](https://factoryboy.readthedocs.io/) | Generate test data using reusable model factories. |
+| [Coverage.py](https://coverage.readthedocs.io/) | Measure test coverage. |
+| [Git](https://git-scm.com/) | Version control. |
+| [lazygit](https://github.com/jesseduffield/lazygit) | Provide a terminal interface for managing Git changes, branches, and commit history. |
+| [GitHub](https://github.com/) | Repository hosting and issue management. |
+| [GitHub Actions](https://github.com/features/actions) | Automate continuous integration checks. |
+
 
 ### AI
 
