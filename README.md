@@ -1,6 +1,10 @@
 # Stash
 
-Project overview/introduction.
+_**Oh - what's that command again?**_
+
+For all those code snippets, commands, and technical notes you use just infrequently enough to forget, only to find yourself grumpily trawling through the same docs page. Again.
+
+Stash is a personal developer reference app for the things you can't believe you still haven't managed to remember *(but know you probably won't)*. Save them once, find them when you need them.
 
 [View the live site here.](live-link)
 
@@ -381,15 +385,6 @@ uv run python manage.py runserver
 Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser to access the application.
 
 Press `Ctrl+C` in the terminal to stop the development server.
-
-
-
-## Credits
-
-
-### Render
-
-### Local Development
 
 ## Acknowledgements
 
